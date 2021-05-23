@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * 品牌管理的controller
  */
 
-@Api(tags = "PmsBrandController",value = "商品品牌管理")
+@Api(tags = "商品品牌管理")
 @Controller
 @Slf4j
 @RequestMapping("/brand")
@@ -27,6 +28,7 @@ public class PmsBrandController {
     private PmsBrandService pmsBrandService;
 
     @ApiOperation("查询所有商品品牌")
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @RequestMapping(value = "/listAll",method = RequestMethod.GET)
     @ResponseBody
     public CommonResult getBrandList(){

@@ -7,7 +7,7 @@ import lombok.Data;
  */
 
 public enum HttpCode {
-    CODE_SUCCESS(200),CODE_FAIL(500),CODE_ERROR(500),CODE_NO_LOGIN(300);
+    CODE_SUCCESS(200),CODE_FAIL(500),CODE_ERROR(500),CODE_NO_LOGIN(300),FORBIDDEN(403);
 
     private int code;
 

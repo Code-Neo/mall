@@ -49,4 +49,26 @@ public class CommonResult<T> {
         return result;
     }
 
+    public static  <T> CommonResult<T>  forbidden(String msg,T data){
+        CommonResult<T> result = new CommonResult<>();
+        result.setCode(HttpCode.FORBIDDEN.getCode());
+        result.setData(data);
+        result.setMsg(msg);
+        return result;
+    }
+
+    /**
+     * 未登录，无法授权
+     * @param msg
+     * @param data
+     * @param <T>
+     * @return
+     */
+    public static  <T> CommonResult<T>  unauthorized(String msg,T data){
+        CommonResult<T> result = new CommonResult<>();
+        result.setCode(HttpCode.FORBIDDEN.getCode());
+        result.setData(data);
+        result.setMsg(msg);
+        return result;
+    }
 }
